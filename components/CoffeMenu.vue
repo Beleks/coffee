@@ -22,7 +22,7 @@ export default {
   },
   computed: {
     coffeMenu(){
-      return this.$store.state.oldValues
+      return this.$store.state.newValues
     }
   },
   components: { CoffeMenuItem },

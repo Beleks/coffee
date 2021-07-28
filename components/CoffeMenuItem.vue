@@ -4,8 +4,8 @@
     <div>
       <div class="price">{{ itemCofe.sum }}</div>
       <div class="buttons">
-        <div>-</div>
-        <div>+</div>
+        <div @click="changeSum(itemCofe.sum - 1)">-</div>
+        <div @click="changeSum(itemCofe.sum + 1)">+</div>
       </div>
     </div>
   </div>
@@ -14,11 +14,24 @@
 <script>
 export default {
   data: () => {
-    return {};
+    return {
+      newSum: 0,
+    };
   },
   props: {
-    itemCofe:Object,
+    itemCofe: Object,
     index: Number,
+  },
+  methods: {
+    changeSum(sum) {
+      // console.log(sum);
+      // Вызвает action во vuex которое меняет newValues
+      this.newSum = sum;
+      this.$store.commit("changeSum", {
+        newSum: this.newSum,
+        index: this.index,
+      });
+    },
   },
 };
 </script>
@@ -27,7 +40,7 @@ export default {
 .item {
   display: flex;
   align-items: center;
-  margin: 0.9em 2em;
+  margin: 0.9em 1.5em;
   justify-content: space-between;
   font-family: "Ubuntu Medium";
 
@@ -35,7 +48,6 @@ export default {
 
   .name {
     font-size: 1em;
-    // font-weight: bold;
   }
 
   .price {
@@ -46,14 +58,12 @@ export default {
     div {
       cursor: pointer;
       background-color: rgb(70, 66, 63);
-      // padding: 0.5em 1em;
       display: flex;
       justify-content: center;
       align-items: center;
       min-width: 41px;
       height: 27px;
       border-radius: 3px;
-      // font-weight: bold;
       opacity: 0.8;
     }
     div:last-child {
