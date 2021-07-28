@@ -1,6 +1,6 @@
 <template>
   <div class="bg" >
-    <CoffeMenuItem v-for="(item, index) in coffeMenu" :key="index" :itemCofe="item" />
+    <CoffeMenuItem v-for="(item, index) in coffeMenu" :key="index" :itemCofe="item" :index="index" />
     <!-- 
       item
       item
@@ -22,7 +22,7 @@ export default {
   },
   computed: {
     coffeMenu(){
-      return this.$store.state.items
+      return this.$store.state.oldValues
     }
   },
   components: { CoffeMenuItem },

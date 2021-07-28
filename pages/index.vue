@@ -3,17 +3,22 @@
     <!-- <Test /> -->
 
     <MoneyCounter></MoneyCounter>
-    <!-- coffee menu / history menu -->
     <CoffeMenu v-if="selected === 'coffe'"></CoffeMenu>
-    <BottomMenu></BottomMenu>
+    <HistoryMenu v-if="selected === 'history'"></HistoryMenu>
+    <BottomMenu @changeTab="changeTab"></BottomMenu>
   </div>
 </template>
 
 <script>
 export default {
-  data: ()=>{
+  data: () => {
     return {
-      selected: 'coffe'
+      selected: "coffe",
+    };
+  },
+  methods: {
+    changeTab(data){
+      this.selected = data
     }
   }
 };

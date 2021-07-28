@@ -16,14 +16,14 @@ import CoffeHistory from "./svg/CoffeHistory.vue";
 export default {
   data: () => {
     return {
-      chose: "history",
+      chose: "coffe",
     };
   },
   computed: {},
   methods: {
     changeTab(tab) {
-      console.log(tab, "tab");
       this.chose = tab;
+      this.$emit('changeTab', this.chose)
     },
   },
 
@@ -47,5 +47,10 @@ export default {
     display: flex;
     align-items: center;
   }
+}
+.bottom_menu > div {
+  width: 50%;
+  display: flex;
+  justify-content: center;
 }
 </style>

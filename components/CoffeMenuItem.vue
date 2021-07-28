@@ -17,9 +17,8 @@ export default {
     return {};
   },
   props: {
-    itemCofe: {
-      type: Object,
-    },
+    itemCofe:Object,
+    index: Number,
   },
 };
 </script>

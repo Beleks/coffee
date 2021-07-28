@@ -1,6 +1,6 @@
 
 export const state = () => ({
-  items: [
+  oldValues: [
     { name: 'Американо', sum: 869 },
     { name: 'Чай', sum: 280 },
     { name: 'Горячий шоколад', sum: 122 },
