@@ -1,7 +1,6 @@
 <template>
   <div>
-    <!-- <Test /> -->
-
+    <!-- Два компонента modal -->
     <MoneyCounter></MoneyCounter>
     <CoffeMenu v-if="selected === 'coffe'"></CoffeMenu>
     <HistoryMenu v-if="selected === 'history'"></HistoryMenu>
@@ -20,7 +19,11 @@ export default {
     changeTab(data){
       this.selected = data
     }
+  },
+  beforeMount(){
+    this.$store.dispatch('getLocalData')
   }
+  
 };
 </script>
 

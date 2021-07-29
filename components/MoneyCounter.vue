@@ -25,6 +25,7 @@ export default {
         result = (newMas[index].sum - oldMas[index].sum) * newMas[index].price;
         this.money = this.money + result;
       }
+      
       return this.money;
     },
   },

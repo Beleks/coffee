@@ -40,18 +40,20 @@ export default {
 .item {
   display: flex;
   align-items: center;
-  margin: 0.9em 1.5em;
+  margin: 1.1em 1.5em;
   justify-content: space-between;
   font-family: "Ubuntu Medium";
 
   color: #fff;
 
   .name {
-    font-size: 1em;
+    font-size: 0.95em;
   }
 
   .price {
     margin-right: 1em;
+    text-align: right;
+    min-width: 40px;
   }
   .buttons {
     display: flex;
