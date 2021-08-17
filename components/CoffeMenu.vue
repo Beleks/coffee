@@ -32,5 +32,6 @@ export default {
 
 <style lang="scss" scoped>
 .bg{
+  padding-bottom: 50px;
 }
 </style>

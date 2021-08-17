@@ -36,7 +36,7 @@ export default {
 
 <style lang="scss" scoped>
 .bottom_menu {
-  position: absolute;
+  position: fixed;
   display: flex;
   justify-content: space-evenly;
   padding: 0.8em 0;
