@@ -26,7 +26,7 @@ export default {
   data: () => {
     return {
       selected: "coffe",
-      modal: "result",
+      modal: "",
     };
   },
   methods: {

@@ -24,7 +24,7 @@ export const state = () => ({
 })
 
 export const mutations = {
-  setSum(state, sum){
+  setSum(state, sum) {
     state.sum = sum
   },
   changeSum(state, obj) {
@@ -42,9 +42,14 @@ export const mutations = {
   //   localStorage.setItem('newValues', state.oldValues)
   // },
   setOldValuesFromLS(state, mas) {
-
-  }
+    state.oldValues = mas
+  },
+  saveAfterResult(state) {
+    localStorage.setItem('oldValues', JSON.stringify(state.newValues))
+    state.oldValues = state.newValues
+  },
 }
+
 export const actions = {
   getLocalData({ commit }) {
     let newValuesLS = localStorage.getItem('newValues')
@@ -68,7 +73,6 @@ export const actions = {
     }
     if (oldValuesLS) {
       commit('setOldValuesFromLS', JSON.parse(oldValuesLS))
-
     }
   }
 }
