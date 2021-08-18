@@ -2,7 +2,7 @@
   <div>
     <!-- Два компонента modal -->
     <Result v-if="modal == 'result'" @changeModal="changeModal"></Result>
-    <TakeCoins v-else></TakeCoins>
+    <CoffeCheck v-else></CoffeCheck>
     <!--  -->
     <div v-if="!modal">
       <MoneyCounter @preResult="changeModal"></MoneyCounter>
@@ -15,12 +15,12 @@
 
 <script>
 import Result from "~/components/modal/Result.vue";
-import TakeCoins from "~/components/modal/TakeCoins.vue";
+import CoffeCheck from "~/components/modal/CoffeCheck.vue";
 
 export default {
   components: {
     Result,
-    TakeCoins,
+    CoffeCheck,
   },
 
   data: () => {

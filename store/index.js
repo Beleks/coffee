@@ -1,5 +1,6 @@
 
 export const state = () => ({
+  sum: 0,
   oldValues: [
     { name: 'Американо', price: 50, sum: 0 },
     { name: 'Чай', price: 15, sum: 0 },
@@ -23,9 +24,12 @@ export const state = () => ({
 })
 
 export const mutations = {
+  setSum(state, sum){
+    state.sum = sum
+  },
   changeSum(state, obj) {
     state.newValues[obj.index].sum = obj.newSum
-    
+
     localStorage.setItem('newValues', JSON.stringify(state.newValues))
   },
   setNewValuesFromLS(state, mas) {

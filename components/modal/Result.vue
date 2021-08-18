@@ -1,8 +1,16 @@
 <template>
   <div class="modal">
-    <div>Собрать ??? рублей</div>
-    <div>Какой-то текст</div>
-    <div>Результаты</div>
+    <div>
+      Собрать <span class="attention">{{ sum }}</span> рублей
+    </div>
+    <div class="text">
+      Убедитесь, что указанные ниже значения
+      <span class="attention">совпадают</span> с данными в кофемашине
+    </div>
+    <div class="resultItem" v-for="(item, index) in resultItems" :key="index">
+      <div>{{item.name}}</div>
+      <div>{{item.sum}}</div>
+    </div>
     <div class="buttons">
       <div class="cancel" @click="modalStatus('')">Позже</div>
       <div class="collect" @click="modalStatus('collect')">Собрать</div>
@@ -12,11 +20,19 @@
 
 <script>
 export default {
-  methods: {
-    modalStatus(status){
-      this.$emit('changeModal', status)
+  computed: {
+    sum() {
+      return this.$store.state.sum;
+    },
+    resultItems(){
+      return this.$store.state.newValues
     }
-  }
+  },
+  methods: {
+    modalStatus(status) {
+      this.$emit("changeModal", status);
+    },
+  },
 };
 </script>
 
@@ -27,28 +43,44 @@ export default {
   background-color: #312c29;
   // z-index: 200;
   // padding: 0 1.2em;
-}
-.buttons {
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  color: #fff;
-  display: flex;
-  padding: 0.5em 1em;
-  justify-content: space-between;
+  text-align: center;
   font-family: "Ubuntu Medium";
-  div {
-    width: 47%;
-    text-align: center;
-    padding: 0.7em;
-    border-radius: 5px;
+  color: #fff;
+  padding-top: 0.8em;
+  .attention {
+    color: #e0afa0;
   }
+  .text {
+    margin: 0.8em 1em;
+    font-size: 0.9rem;
+  }
+  .resultItem {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.8em 1em;
+    
+  }
+  .buttons {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    padding: 0.5em 1em;
+    justify-content: space-between;
+    // font-family: "Ubuntu Medium";
+    div {
+      width: 47%;
+      // text-align: center;
+      padding: 0.7em;
+      border-radius: 5px;
+    }
 
-  .cancel {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-  .collect {
-    background-color: #e0afa0;
+    .cancel {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    .collect {
+      background-color: #e0afa0;
+    }
   }
 }
 </style>
