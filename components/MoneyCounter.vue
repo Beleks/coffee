@@ -1,5 +1,5 @@
 <template>
-  <div class="top" @click="checkProfit()">
+  <div class="top" @click="checkProfit('result')">
     <Coins></Coins>
     <div class="sum">{{ moneyCalculating }} р</div>
   </div>
@@ -25,12 +25,14 @@ export default {
         result = (newMas[index].sum - oldMas[index].sum) * newMas[index].price;
         this.money = this.money + result;
       }
-      
+
       return this.money;
     },
   },
   methods: {
-
+    checkProfit(param) {
+      this.$emit("preResult", param);
+    },
   },
   components: {
     Coins,

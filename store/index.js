@@ -47,7 +47,6 @@ export const actions = {
     let oldValuesLS = localStorage.getItem('oldValues')
 
     if (newValuesLS) {
-      console.log(newValuesLS)
       commit('setNewValuesFromLS', JSON.parse(newValuesLS))
     }
     else {

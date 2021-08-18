@@ -23,7 +23,7 @@ export default {
   methods: {
     changeTab(tab) {
       this.chose = tab;
-      this.$emit('changeTab', this.chose)
+      this.$emit("changeTab", this.chose);
     },
   },
 
@@ -41,8 +41,10 @@ export default {
   justify-content: space-evenly;
   padding: 0.8em 0;
   background-color: rgb(70, 66, 63);
+  box-shadow: 0px -4px 20px rgba(0, 0, 0, 0.15);
   bottom: 0;
   width: 100%;
+  z-index: 100;
   div {
     display: flex;
     align-items: center;

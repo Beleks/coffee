@@ -1,29 +1,45 @@
 <template>
   <div>
     <!-- Два компонента modal -->
-    <MoneyCounter></MoneyCounter>
-    <CoffeMenu v-if="selected === 'coffe'"></CoffeMenu>
-    <HistoryMenu v-if="selected === 'history'"></HistoryMenu>
-    <BottomMenu @changeTab="changeTab"></BottomMenu>
+    <Result v-if="modal == 'result'" @changeModal="changeModal"></Result>
+    <TakeCoins v-else></TakeCoins>
+    <!--  -->
+    <div v-if="!modal">
+      <MoneyCounter @preResult="changeModal"></MoneyCounter>
+      <CoffeMenu v-if="selected === 'coffe'"></CoffeMenu>
+      <HistoryMenu v-if="selected === 'history'"></HistoryMenu>
+      <BottomMenu @changeTab="changeTab"></BottomMenu>
+    </div>
   </div>
 </template>
 
 <script>
+import Result from "~/components/modal/Result.vue";
+import TakeCoins from "~/components/modal/TakeCoins.vue";
+
 export default {
+  components: {
+    Result,
+    TakeCoins,
+  },
+
   data: () => {
     return {
       selected: "coffe",
+      modal: "result",
     };
   },
   methods: {
-    changeTab(data){
-      this.selected = data
-    }
+    changeTab(data) {
+      this.selected = data;
+    },
+    changeModal(status) {
+      this.modal = status;
+    },
   },
-  beforeMount(){
-    this.$store.dispatch('getLocalData')
-  }
-  
+  beforeMount() {
+    this.$store.dispatch("getLocalData");
+  },
 };
 </script>
 
@@ -42,6 +58,9 @@ export default {
   // font-weight: 400;
   // font-display: swap;
   src: url("~assets/fonts/Ubuntu-Regular.ttf") format("truetype");
+}
+* {
+  box-sizing: border-box;
 }
 body {
   margin: 0;

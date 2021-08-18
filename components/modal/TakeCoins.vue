@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="modal">
     
   </div>
 </template>
@@ -10,6 +10,10 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+.modal{
+  height: 100%;
+  width: 100%;
+  background-color: #312C29;
+}
 </style>
