@@ -2,7 +2,7 @@
   <div>
     <!-- Два компонента modal -->
     <Result v-if="modal == 'result'" @changeModal="changeModal"></Result>
-    <CoffeCheck v-else></CoffeCheck>
+    <CoffeCheck v-if="modal == 'check'" @changeModal="changeModal"></CoffeCheck>
     <!--  -->
     <div v-if="!modal">
       <MoneyCounter @preResult="changeModal"></MoneyCounter>

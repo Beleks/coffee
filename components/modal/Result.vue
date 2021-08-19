@@ -78,7 +78,7 @@ export default {
       // console.log(record);
 
       // this.modalStatus('collect')
-      this.modalStatus("");
+      this.modalStatus("check");
     },
   },
 };

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg">
     <history-menu-item
       v-for="(item, index) in history"
       :key="index"
@@ -22,4 +22,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.bg {
+  padding-bottom: 50px;
+}
 </style>
