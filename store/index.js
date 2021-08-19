@@ -67,11 +67,11 @@ export const mutations = {
     let history = localStorage.getItem('history')
     if (history) {
       state.history = JSON.parse(history)
-      state.history.push(record)
+      state.history.unshift(record)
       localStorage.setItem('history', JSON.stringify(state.history))
     }
     else {
-      state.history.push(record)
+      state.history.unshift(record)
       localStorage.setItem('history', JSON.stringify(state.history))
     }
   },

@@ -33,15 +33,9 @@ export default {
       this.$emit("changeModal", status);
     },
     collect() {
-      // this.modalStatus('collect')
-      // date
-      // time
-      // sum
       let newMas = this.$store.state.newValues;
       let oldMas = this.$store.state.oldValues;
 
-      let result;
-      // this.money = 0;
       let record = {
         date: "",
         time: "",
@@ -49,6 +43,7 @@ export default {
         sumCups: 0,
         cups: [],
       };
+      
       let sumCups = 0;
       for (let index = 0; index < newMas.length; index++) {
         let itemCups = {
@@ -83,8 +78,7 @@ export default {
       // console.log(record);
 
       // this.modalStatus('collect')
-      this.modalStatus('')
-
+      this.modalStatus("");
     },
   },
 };

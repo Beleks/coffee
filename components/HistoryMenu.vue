@@ -1,15 +1,25 @@
 <template>
   <div>
-    История
+    <history-menu-item
+      v-for="(item, index) in history"
+      :key="index"
+      :itemHistory="item"
+    ></history-menu-item>
   </div>
 </template>
 
 <script>
-export default {
+import HistoryMenuItem from "./HistoryMenuItem.vue";
 
-}
+export default {
+  computed: {
+    history() {
+      return this.$store.state.history;
+    },
+  },
+  components: { HistoryMenuItem },
+};
 </script>
 
-<style>
-
+<style lang="scss" scoped>
 </style>
