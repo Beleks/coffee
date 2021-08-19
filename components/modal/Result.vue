@@ -33,7 +33,7 @@ export default {
       this.$emit("changeModal", status);
     },
     collect() {
-      this.modalStatus('collect')
+      // this.modalStatus('collect')
       // date
       // time
       // sum
@@ -79,8 +79,8 @@ export default {
       record.date = today;
       record.time = mytime.slice(0, -3);
 
-      this.$store.commit("saveAfterResult");
-      console.log(record);
+      this.$store.commit("saveAfterResult", record);
+      // console.log(record);
 
       // this.modalStatus('collect')
       this.modalStatus('')
